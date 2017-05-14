@@ -2,11 +2,11 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.thoughtworks.paranamer</groupId>
-    <artifactId>paranamer-parent-debug</artifactId>
-    <version>2.3-debug</version>
+    <artifactId>paranamer-parent</artifactId>
+    <version>2.4</version>
   </parent>
   <artifactId>paranamer</artifactId>
-  <name>ParaNamer Core (debug edition)</name>
+  <name>ParaNamer Core</name>
   <dependencies>
 	<dependency>
 	    <groupId>org.jmock</groupId>
@@ -26,16 +26,33 @@
         <version>1</version>
         <optional>true</optional>
     </dependency>
-    <dependency>
-      <groupId>asm</groupId>
-      <artifactId>asm</artifactId>
-      <version>3.3</version>
-      <scope>compile</scope>
-      <optional>true</optional>
-    </dependency>
   </dependencies>
   <build>
     <plugins>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-source-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>attach-sources</id>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-javadoc-plugin</artifactId>
+			<executions>
+				<execution>
+					<id>attach-javadocs</id>
+					<goals>
+						<goal>jar</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
       <plugin>
         <groupId>com.thoughtworks.paranamer</groupId>
         <artifactId>paranamer-maven-plugin</artifactId>
